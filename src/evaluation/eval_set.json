@@ -1,0 +1,4 @@
+{
+  "_notes": "Gold labels were hand-annotated by reading the full source text. 'source' = 'scraped_vault' means the text was pulled and reconstructed from the live ChromaDB vault at data/rbi_vault (real RBI press releases, run through clean_content() to strip nav/footer boilerplate). 'source' = 'constructed_for_eval_coverage' means the snippet was written by hand to exercise entity types (CIRCULAR_REFERENCE, additional ORGANIZATION/INSTRUMENT values) that don't appear in the 3 documents available in the vault at the time this eval was built. This is a small initial set (5 documents, ~80 gold entities) intended to be expanded as the live vault accumulates more scraped documents -- see README for how to add cases.",
+  "documents": []
+}
