@@ -55,20 +55,16 @@ Key endpoints: `GET /health`, `POST /extract`, `POST /scrape-and-extract`, `POST
 
 ## Project layout
 ```
-SentinelFlow-AI/
-├── src/
-│   ├── agents/         # Intelligence orchestration & compliance logic (single + batched RAG)
-│   ├── api/            # FastAPI microservice (extraction + RAG endpoints)
-│   ├── nlp/            # Rule-based financial entity extraction
-│   ├── evaluation/      # Labeled eval set + accuracy/precision/recall scoring
-│   ├── ingestion/      # Scrapers, content cleaning, chunking, vector store
-│   └── app/            # Streamlit executive dashboard
-├── benchmarks/         # Vector retrieval speed benchmark (naive vs batched)
-├── tests/              # Unit tests
-├── scripts/            # One-time vault maintenance utilities
-├── data/               # Persistent 'rbi_vault' (Local Vector Store)
-├── requirements.txt    # Sanitized dependency tree
-└── README.md           # System documentation
+src/
+  agents/       RAG compliance agent
+  api/          FastAPI service
+  app/          Streamlit dashboard
+  evaluation/   Gold-labelled entity extraction evaluation set and runner
+  ingestion/    RBI scraper, cleaner, chunker, vector store
+  nlp/          Financial entity extraction
+benchmarks/     Retrieval benchmark
+scripts/        Vault maintenance utility
+tests/          Entity extractor tests
 ```
 
 ## Tests, evaluation, and benchmark
