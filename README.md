@@ -59,6 +59,7 @@ src/
   agents/       RAG compliance agent
   api/          FastAPI service
   app/          Streamlit dashboard
+  evaluation/   Gold-labelled entity extraction evaluation set and runner
   ingestion/    RBI scraper, cleaner, chunker, vector store
   nlp/          Financial entity extraction
 benchmarks/     Retrieval benchmark
@@ -66,13 +67,29 @@ scripts/        Vault maintenance utility
 tests/          Entity extractor tests
 ```
 
-## Tests and benchmark
+## Tests, evaluation, and benchmark
+Run the unit tests:
+
 ```bash
 python3 tests/test_entity_extractor.py
+```
+
+Run the labelled entity-extraction evaluation:
+
+```bash
+python3 -m src.evaluation.run_eval
+```
+
+Run the retrieval benchmark:
+
+```bash
 python3 benchmarks/benchmark_retrieval.py
 ```
 
-The retrieval benchmark requires a populated local vault and creates a synthetic test corpus seeded from local embeddings. The generated ChromaDB database is intentionally not committed; run the ingestion pipeline to build local data before using vault-dependent features or benchmarks.
+The retrieval benchmark requires a populated local vault and creates a synthetic test corpus seeded from local embeddings.
+
+## ChromaDB data
+The original project archive contains a small ChromaDB snapshot under `data/rbi_vault/`. The SQLite database and HNSW index are binary runtime data rather than source code; they are not included in this repository commit. Run `python main.py` to build a fresh local vault before using vault-dependent features or the retrieval benchmark. Do not commit live database/WAL/SHM files or private source data.
 
 ## Disclaimer
 SentinelFlow is a research and decision-support aid, not legal or compliance advice. Verify regulatory interpretations against official source documents.
